@@ -1,0 +1,47 @@
+﻿@model Dziennik.Models.Wynik
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Usuń ocenę</h2>
+
+<h3>Czy jesteś pewny że chcesz usunąć tą ocenę?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Przedmiot.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Przedmiot.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ocena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ocena)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

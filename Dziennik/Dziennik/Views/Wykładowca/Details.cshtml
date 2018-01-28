@@ -1,0 +1,62 @@
+﻿@model Dziennik.Models.Wykładowca
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły wykładowcy</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Przedmioty)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Skrót</th>
+                    <th>Punkty ECTS</th>
+                </tr>
+                @foreach (var item in Model.Przedmioty)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nazwa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Skrót)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PunktyECTS)
+                        </td>
+                    </tr>
+                }
+                <th>
+                    @Html.ActionLink("Dodaj przedmiot", "Create", "Przedmiot")
+                </th>
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Dziennik.Models.Wynik>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista ocen</h2>
+
+<p>
+    @Html.ActionLink("Dodaj ocenę", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Przedmiot.Nazwa)
+        </th>
+        <th>
+            Student
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ocena)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Przedmiot.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Imię)
+            @Html.DisplayFor(modelItem => item.Student.Nazwisko)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ocena)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model Dziennik.Models.Wykładowca
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Usuń wykładowcę</h2>
+
+<h3>Czy jesteś pewny że chcesz usunąć tego wykładowcę?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

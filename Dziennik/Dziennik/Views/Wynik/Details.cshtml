@@ -1,0 +1,42 @@
+﻿@model Dziennik.Models.Wynik
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły oceny</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Przedmiot.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Przedmiot.Nazwa)
+        </dd>
+
+        <dt>
+            Student
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Imię)
+            @Html.DisplayFor(model => model.Student.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ocena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ocena)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

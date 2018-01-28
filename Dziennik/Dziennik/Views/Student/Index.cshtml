@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Dziennik.Models.Student>
+
+@{
+    ViewBag.Title = "Studenci";
+}
+
+<h2>Lista studentów</h2>
+
+<p>
+    @Html.ActionLink("Dodaj studenta", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Imię)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RokStudnów)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StopieńStudiów)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kierunek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NrAlbumu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPrzyjęcia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imię)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwisko)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RokStudnów)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StopieńStudiów)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kierunek)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NrAlbumu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataPrzyjęcia)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

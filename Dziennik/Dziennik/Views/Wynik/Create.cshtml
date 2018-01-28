@@ -1,0 +1,56 @@
+﻿@model Dziennik.Models.Wynik
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Dodaj ocenę</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentID, "Nr Albumu", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StudentID", String.Empty)
+                @Html.ValidationMessageFor(model => model.Student.NrAlbumu)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrzedmiotID, "Nazwa przedmiotu", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PrzedmiotID", String.Empty)
+                @Html.ValidationMessageFor(model => model.PrzedmiotID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ocena, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ocena)
+                @Html.ValidationMessageFor(model => model.Ocena)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Dodaj" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Powrót", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

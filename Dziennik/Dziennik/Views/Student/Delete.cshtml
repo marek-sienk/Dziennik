@@ -1,0 +1,79 @@
+﻿@model Dziennik.Models.Student
+
+@{
+    ViewBag.Title = "Usuń studenta";
+}
+
+<h2>Usuń studenta</h2>
+
+<h3>Czy jesteś pewny że chcesz usunąć tego studenta?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RokStudnów)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RokStudnów)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StopieńStudiów)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StopieńStudiów)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kierunek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kierunek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrAlbumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrAlbumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPrzyjęcia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPrzyjęcia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger" /> |
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+    }
+</div>

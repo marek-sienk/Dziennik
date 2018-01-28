@@ -1,0 +1,98 @@
+﻿@model Dziennik.Models.Student
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+
+<h2>Szczegóły studenta</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imię)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imię)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RokStudnów)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RokStudnów)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StopieńStudiów)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StopieńStudiów)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kierunek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kierunek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrAlbumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrAlbumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPrzyjęcia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPrzyjęcia)
+        </dd>
+
+        <dt>
+            Oceny
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Przedmiot</th>
+                    <th>Ocena</th>
+                </tr>
+                @foreach (var item in Model.Wyniki)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Przedmiot.Skrót)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ocena)
+                        </td>
+                    </tr>
+                }
+                <th>
+                    @Html.ActionLink("Dodaj ocenę", "Create", "Wynik")
+                </th>
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

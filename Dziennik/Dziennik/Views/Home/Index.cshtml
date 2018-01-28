@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <img src="/Content/Images/e-dziennik3.png" />
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Zarejestruj się aby korzystać z dziennika</h2>
+        <p>
+            Jeżeli jesteś studentem naszej uczelni zarejstruj się aby móc w szybki i łatwy sposób sprawdzać swoje oceny.
+        </p>
+        <div>@Html.ActionLink("Rejestracja", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+    </div>
+    <div class="col-md-6">
+        <h2>Zaloguj się</h2>
+        <p>Jeśli posiadasz już konto w naszym dzienniku zaloguj się aby z niego skorzystać.</p>
+        <div>@Html.ActionLink("Logowanie", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Wykładowcy</h2>
+        <p>Nowi wykładowcy naszej uczelni powinni jak najszybciej skontaktować się z administratorem z prośbą o stworzenie konta. Tradycyjna rejestracja jest tylko dla studentów.</p>
+    </div>
+    <div class="col-md-6">
+        <h2>Pomoc</h2>
+        <p>W razie jakichkolwiek problemów w działaniu aplikacji należy skontaktować się z administratorem pod adresem dziennik.administracja@uph.edu.pl</p>
+    </div>
+</div>
